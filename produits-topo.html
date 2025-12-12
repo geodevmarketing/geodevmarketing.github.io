@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Cartes topographiques</title>
+    <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" href="css/cards.css">
+</head>
+
+<body>
+
+<!-- HEADER avec logo aligné -->
+<header class="main-header">
+    <div class="logo-title-container">
+        <img src="images/logo-cnct.png" id="logo-cnct" alt="Logo CNCT">
+        <h1 class="page-title">Cartes topographiques</h1>
+    </div>
+</header>
+
+<!-- Bouton retour -->
+<button class="btn-back" onclick="goBack()">← Retour</button>
+
+<section class="cards-container">
+
+    <a href="mobile_map/25k.html?type=topo25k" class="card">
+        <img src="images/topo.jpg" alt="Carte 1:25 000">
+        <h3>1 : 25 000</h3>
+    </a>
+
+    <a href="mobile_map/50k.html?type=topo50k" class="card">
+        <img src="images/topo.jpg" alt="Carte 1:50 000">
+        <h3>1 : 50 000</h3>
+    </a>
+
+    <a href="mobile_map/100k.html?type=topo100k" class="card">
+        <img src="images/topo.jpg" alt="Carte 1:100 000">
+        <h3>1 : 100 000</h3>
+    </a>
+
+</section>
+
+<!-- Script global -->
+<script src="js/app.js"></script>
+
+</body>
+</html>

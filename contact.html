@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Contact CNCT</title>
+<link rel="stylesheet" href="css/style.css">
+<link rel="stylesheet" href="css/cards.css">
+</head>
+
+<body>
+
+<!-- HEADER avec logo aligné -->
+<header class="main-header">
+    <div class="logo-title-container">
+        <img src="images/logo-cnct.png" id="logo-cnct" alt="Logo CNCT">
+        <h1 class="page-title">Contact CNCT</h1>
+    </div>
+</header>
+
+<!-- Bouton retour -->
+<button class="btn-back" onclick="goBack()">← Retour</button>
+
+<!-- Informations de l'entreprise -->
+<section class="contact-info" style="max-width:800px; margin: 20px auto; padding: 0 15px;">
+    <h2>Centre National de Cartographie et de Télédétection</h2>
+    <p>Le CNCT est spécialisé dans la cartographie, la télédétection et les services SIG.</p>
+
+    <ul style="list-style:none; padding:0; margin:15px 0;">
+        <li><strong>Adresse :</strong> 123 Rue Imaginaire, 1000 Tunis, Tunisie</li>
+        <li><strong>Téléphone :</strong> +216 71 123 456</li>
+        <li><strong>Email :</strong> contact@cnct.tn</li>
+        <li><strong>Site Web :</strong> <a href="https://www.cnct.tn" target="_blank">www.cnct.tn</a></li>
+    </ul>
+</section>
+
+<!-- Google Map -->
+<div style="max-width:800px; margin:auto; margin-bottom:30px;">
+    <iframe class="map-frame" 
+        src="https://www.google.com/maps?q=Centre%20National%20de%20Cartographie%20et%20de%20Télédétection&output=embed"
+        width="100%" height="400" style="border:0;" allowfullscreen="" loading="lazy">
+    </iframe>
+</div>
+
+<!-- Script global -->
+<script src="js/app.js"></script>
+
+</body>
+</html>

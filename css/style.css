@@ -1,0 +1,40 @@
+/* ===========================
+   HEADER LOGO & TITRE
+=========================== */
+.main-header {
+    background: #005f73;
+    color: #fff;
+    padding: 20px;
+    text-align: center;
+}
+
+.logo-title-container {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 15px;
+}
+
+.logo-title-container img#logo-cnct {
+    height: 60px; /* Ajuste la taille du logo */
+    width: auto;
+}
+
+/* ===========================
+   BOUTON RETOUR
+=========================== */
+.btn-back {
+    display: inline-block;
+    background: #005f73;
+    color: #fff;
+    padding: 8px 15px;
+    margin: 10px 20px;
+    border-radius: 8px;
+    cursor: pointer;
+    transition: background 0.3s ease;
+    font-size: 1rem;
+}
+
+.btn-back:hover {
+    background: #0a9396;
+}

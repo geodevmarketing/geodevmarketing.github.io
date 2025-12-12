@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Produits CNCT</title>
+<link rel="stylesheet" href="css/style.css">
+<link rel="stylesheet" href="css/cards.css">
+</head>
+<body>
+
+<!-- HEADER avec logo aligné -->
+<header class="main-header">
+    <div class="logo-title-container">
+        <img src="images/logo-cnct.png" id="logo-cnct" alt="Logo CNCT">
+        <h1 class="page-title">Nos Produits</h1>
+    </div>
+</header>
+
+<!-- Bouton retour -->
+<button class="btn-back" onclick="goBack()">← Retour</button>
+
+<section class="cards-container">
+
+    <!-- 1. Cartes topographiques -->
+    <a href="produits-topo.html" class="card">
+        <img src="images/topo.jpg" alt="Cartes topographiques">
+        <h3>Cartes topographiques</h3>
+    </a>
+
+    <!-- 2. Cartes marines -->
+    <a href="produits-marines.html" class="card">
+        <img src="images/marines.jpg" alt="Cartes marines">
+        <h3>Cartes marines</h3>
+    </a>
+
+    <!-- 3. Cartes thématiques -->
+    <a href="maps.html?type=thematique" class="card">
+        <img src="images/thematic.jpg" alt="Cartes thématiques">
+        <h3>Cartes thématiques (Carte routière)</h3>
+    </a>
+
+    <!-- 4. Photos aériennes -->
+    <a href="maps.html?type=pva" class="card">
+        <img src="images/pva.jpg" alt="Photos aériennes">
+        <h3>Photos aériennes (PVA)</h3>
+    </a>
+
+    <!-- 5. Images satellitaires -->
+    <a href="maps.html?type=satellite" class="card">
+        <img src="images/satellite.jpg" alt="Images satellitaires">
+        <h3>Images satellitaires</h3>
+    </a>
+
+    <!-- 6. Modèles Numériques de Terrain -->
+    <a href="maps.html?type=mnt" class="card">
+        <img src="images/mnt.jpg" alt="MNT">
+        <h3>Modèles Numériques de Terrain (MNT)</h3>
+    </a>
+
+    <!-- 7. Ortho-photos -->
+    <a href="maps.html?type=ortho" class="card">
+        <img src="images/ortho.jpg" alt="Ortho-photos">
+        <h3>Ortho-photos</h3>
+    </a>
+
+</section>
+
+<!-- Script global -->
+<script src="js/app.js"></script>
+
+</body>
+</html>
