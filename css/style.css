@@ -13,7 +13,7 @@
 .logo-title-container {
     display: flex;
     align-items: center;
-    justify-content: space-between;
+    justify-content: space-evenly;
     gap: 5px;
 }
 
@@ -54,6 +54,7 @@
 .btn-back:hover {
     background: #0a1f33e1;
 }
+
 
 
 
