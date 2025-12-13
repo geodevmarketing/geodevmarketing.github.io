@@ -6,8 +6,9 @@ document.addEventListener("DOMContentLoaded", () => {
     const serviceMap = {
         sigweb: {
             title: "SIG web",
-            description: "Un Web SIG est un système d’information géographique accessible via un navigateur web, permettant de visualiser, analyser et interagir avec des données spatiales sans logiciel spécialisé.Il facilite le partage de l’information géographique, l’accès en temps réel aux données et l’aide à la prise de décision grâce à des cartes et des outils interactifs.",
-            video : "media/front.mp4"
+            description: "Description du service SIG web...",
+            video : "media/LGeoCRUD2.mp4",
+            video2 : "media/front.mp4"
         },
         visite: {
             title: "Visite virtuelle",
@@ -53,6 +54,7 @@ document.addEventListener("DOMContentLoaded", () => {
     const serviceTitleElem = document.getElementById("service-title");
     const serviceDescElem = document.getElementById("service-description");
     const serviceVideoElem = document.getElementById("service-video");
+    const serviceVideoElem2 = document.getElementById("service-video2");
 
 
     if(serviceTitleElem && serviceDescElem){
@@ -70,6 +72,14 @@ document.addEventListener("DOMContentLoaded", () => {
                 </video>
             `;
             }
+            if (service.video2 && serviceVideoElem2) {
+            serviceVideoElem2.innerHTML = `
+                <video autoplay muted loop playsinline preload="auto">
+                    <source src="${service.video2}" type="video/mp4">
+                    Votre navigateur ne supporte pas la lecture vidéo.
+                </video>
+            `;
+            }
         }
     }
 });
@@ -77,4 +87,3 @@ const video = document.getElementById("service-video-player");
 if (video) {
     video.playbackRate = 2;
 }
-
