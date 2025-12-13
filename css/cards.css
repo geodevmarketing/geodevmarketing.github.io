@@ -45,13 +45,14 @@
 /* Responsive cards */
 @media (max-width: 768px) {
     .card {
-        width: 80%;
+        width: 90%;
     }
 
     .card img {
         height: 150px;
     }
 }
+
 
 
 
