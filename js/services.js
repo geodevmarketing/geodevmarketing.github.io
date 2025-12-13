@@ -6,7 +6,7 @@ document.addEventListener("DOMContentLoaded", () => {
     const serviceMap = {
         sigweb: {
             title: "SIG web",
-            description: "Description du service SIG web...",
+            description: "Un Web SIG est un système d’information géographique accessible via un navigateur web, permettant de visualiser, analyser et interagir avec des données spatiales sans logiciel spécialisé.Il facilite le partage de l’information géographique, l’accès en temps réel aux données et l’aide à la prise de décision grâce à des cartes et des outils interactifs.",
             video : "media/front.mp4"
         },
         visite: {
@@ -77,3 +77,4 @@ const video = document.getElementById("service-video-player");
 if (video) {
     video.playbackRate = 2;
 }
+
