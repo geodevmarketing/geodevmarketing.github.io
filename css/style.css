@@ -6,7 +6,7 @@
     background : #0A1F33;
     color: #fff;
     padding: 5px;
-    text-align: center;
+    text-align: start;
    border-radius: 10px;
 }
 
@@ -54,6 +54,7 @@
 .btn-back:hover {
     background: #0a1f33e1;
 }
+
 
 
 
