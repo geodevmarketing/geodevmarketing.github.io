@@ -5,11 +5,11 @@ document.addEventListener("DOMContentLoaded", () => {
 
     const serviceMap = {
         sigweb: {
-            title: "SIG web",
+            title: "SIG Web",
             description: "Description du service SIG web..."
         },
         visite: {
-            title: "Visite virtuelle",
+            title: "Visite Virtuelle",
             description: "Description du service Visite virtuelle..."
         },
         formation: {
@@ -17,23 +17,23 @@ document.addEventListener("DOMContentLoaded", () => {
             description: "Description du service Formation..."
         },
         assistance: {
-            title: "Assistance technique",
+            title: "Assistance Technique",
             description: "Description du service Assistance technique..."
         },
         validation: {
-            title: "Validation des cahiers des charges",
+            title: "Validation des Cahiers des Charges",
             description: "Description du service Validation des cahiers des charges..."
         },
         controle: {
-            title: "Contrôle technique des produits",
+            title: "Contrôle Technique des Produits",
             description: "Description du service Contrôle technique des produits..."
         },
         prisevue: {
-            title: "Accompagnement prise de vue aérienne",
+            title: "Accompagnement Prise de Vue Aérienne",
             description: "Description du service Accompagnement prise de vue aérienne..."
         },
         topo: {
-            title: "Travaux topographiques et géodésiques",
+            title: "Travaux Topographiques et Géodésiques",
             description: "Description du service Travaux topographiques et géodésiques..."
         }
     };
@@ -61,3 +61,4 @@ document.addEventListener("DOMContentLoaded", () => {
         }
     }
 });
+
