@@ -52,7 +52,46 @@
 	color: black;
 }
 
+/* === GLOBAL LEAFLET BUTTON STYLE === */
+.leaflet-bar {
+  border: none !important;
+}
+.leaflet-bar a,
+.leaflet-control .easy-button-button {
+    width: 44px !important;
+    height: 44px !important;
+    line-height: 44px !important;
 
+    border-radius: 50% !important;   /* cercle parfait */
+    background-color: #0A1F33 !important; /* bleu foncé */
+    color: #ffffff !important;
+
+    border: none !important;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.35);
+
+    font-size: 18px;
+    text-align: center;
+}
+
+/* Icônes Font Awesome bien centrées */
+.leaflet-bar a i,
+.easy-button-button i {
+    line-height: 44px;
+    color: #ffffff;
+}
+
+/* Hover effect */
+.leaflet-bar a:hover,
+.easy-button-button:hover {
+    background-color: #123B5A !important;
+    transform: scale(1.05);
+}
+
+/* Active / touch feedback */
+.leaflet-bar a:active,
+.easy-button-button:active {
+    transform: scale(0.95);
+}
 
   </style>
 </head>
@@ -181,6 +220,7 @@ L.easyButton({
   </script>
 </body>
 </html>
+
 
 
 
