@@ -1,118 +1,164 @@
 <!DOCTYPE html>
-<html lang="fr">
+<html>
 <head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Maps - CNCT</title>
-<link rel="stylesheet" href="css/style.css">
-<link rel="stylesheet" href="css/cards.css">
-<style>
-    /* Map pleine page */
-    #map {
-        width: 100%;
-        height: 100vh;
-    }
+  <title>Maps - CNCT</title>
+  <meta name="viewport" charset="utf-8" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
 
-    /* Menu latéral */
-    #sideMenu {
-        position: fixed;
-        top: 0;
-        left: -250px;
-        width: 250px;
-        height: 100%;
-        background: #0a9396;
-        color: #fff;
-        padding: 20px;
-        transition: 0.3s;
-        z-index: 1000;
-    }
+  <link rel="stylesheet" href="https://unpkg.com/leaflet/dist/leaflet.css" />
+  <link href="https://maxcdn.bootstrapcdn.com/font-awesome/4.1.0/css/font-awesome.min.css" rel="stylesheet">
+  <style>
+    #map { height: 90vh; }
+    .legend {
+  background: white;
+  padding: 10px;
+  border-radius: 8px;
+  line-height: 18px;
+  box-shadow: 0 0 6px rgba(0,0,0,0.25);
+  font-size: 13px;
+  max-width: 200px;
+  /* min-width: 300; */
+}
 
-    #sideMenu.open { left: 0; }
+/* Desktop */
+@media (min-width: 768px) {
+  .legend {
+    font-size: 14px;
+  }
+}
 
-    .menu-btn {
-        position: fixed;
-        top: 20px;
-        left: 20px;
-        z-index: 1100;
-        background: #005f73;
-        color: #fff;
-        border: none;
-        padding: 10px;
-        cursor: pointer;
-        border-radius: 6px;
-    }
-</style>
+/* Mobile layout */
+@media (max-width: 767px) {
+  .legend {
+    font-size: 12px;
+    padding: 8px;
+    max-width: 200px;
+    line-height: 16px;
+  }
+
+  .legend i {
+    width: 10px !important;
+    height: 10px !important;
+  }
+}
+.closebtn {
+	position: absolute;
+	top: 0;
+	right: 10px;
+	font-size: 30px;
+	margin-left: 50px;
+	text-decoration: none;
+	color: black;
+}
+
+
+
+  </style>
 </head>
 <body>
 
-<!-- Menu latéral -->
-<div id="sideMenu">
-    <h2>Menu Produit / Service</h2>
-    <p id="map-title">Titre du produit</p>
-    <p id="map-scale">Échelle</p>
-    <hr>
-    <a href="index.html" class="menu-link">Accueil</a>
-    <a href="produits.html" class="menu-link">Produits</a>
-    <a href="services.html" class="menu-link">Services</a>
+
+ 
+<div id="map"></div>
+<div id="side-bar" style="background-color: #f1f1f1">
+    <a href="javascript:void(0)" class="closebtn" onclick="sidebarreturn()"
+        >&times;</a
+    >
+    <br><br><br>
+<div>
+    <h2>Description</h2>
 </div>
 
-<!-- Bouton menu -->
-<button class="menu-btn" onclick="toggleMenu()">☰ Menu</button>
+</div>
 
-<!-- Google Map -->
-<div id="map"></div>
+  <script src="https://unpkg.com/leaflet/dist/leaflet.js"></script>
+  <link rel="stylesheet" href="mobile_map/plugin/L.Control.Sidebar.css" />
+  <script src="mobile_map/plugin/L.Control.Sidebar.js"></script>
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/leaflet-easybutton@2/src/easy-button.css" />
+<script src="https://cdn.jsdelivr.net/npm/leaflet-easybutton@2/src/easy-button.js"></script>
 
-<script>
-function toggleMenu() {
-    document.getElementById("sideMenu").classList.toggle("open");
-    // Important : resize map pour qu'elle reste centrée après ouverture/fermeture
-    if(window.map) google.maps.event.trigger(window.map, 'resize');
-}
+  
+  
 
-// Initialisation de la map
-function initMap() {
-    const defaultCenter = { lat: 34.0, lng: 9.0 };
+  <script>
+    // 1. Create map
+    const map = L.map('map').setView([34.0, 9.0], 6); // center Tunisia
 
-    // Création de la map globale
-    window.map = new google.maps.Map(document.getElementById("map"), {
-        zoom: 6,
-        center: defaultCenter
-    });
 
-    // Exemple de marker
-    new google.maps.Marker({
-        position: defaultCenter,
-        map: window.map,
-        title: "CNCT"
-    });
+    L.tileLayer(
+  "https://server.arcgisonline.com/ArcGIS/rest/services/World_Topo_Map/MapServer/tile/{z}/{y}/{x}",
+  {
+    attribution: 'Tiles © Esri',
+    maxZoom: 19
+  }
+).addTo(map);
 
-    // Lire le paramètre type depuis URL
-    const params = new URLSearchParams(window.location.search);
-    const type = params.get("type") || "produit";
+function sidebarreturn() {
+				ctlSidebar.toggle();
+			}
+			ctlSidebar = L.control.sidebar("side-bar").addTo(map);
+			ctlEasybutton = L.easyButton("fa fa-bars", function () {
+				ctlSidebar.toggle();
+			})
+				.setPosition("topleft")
+				.addTo(map);
 
-    const titles = {
-        topo25k: "Cartes topographiques 1:25 000",
-        topo50k: "Cartes topographiques 1:50 000",
-        topo100k: "Cartes topographiques 1:100 000",
-        marine5k: "Cartes marines 1:5 000",
-        marine15k: "Cartes marines 1:15 000",
-        marine25k: "Cartes marines 1:25 000",
-        marine50k: "Cartes marines 1:50 000",
-        marine75k: "Cartes marines 1:75 000",
-        marine150k: "Cartes marines 1:150 000",
-        thematique: "Cartes thématiques",
-        pva: "Photos aériennes (PVA)",
-        satellite: "Images satellitaires",
-        mnt: "Modèles Numériques de Terrain (MNT)",
-        ortho: "Ortho-photos"
-    };
 
-    document.getElementById("map-title").textContent = titles[type] || "Produit";
-}
-</script>
+        const colors = {
+  "Production 2017": "#50e3c2", // strong soft blue
+  // "Production 2018": "#50e3c2", // soft turquoise
+  "Production 2019": "#f5a623", // warm golden yellow
+  "Production 2020": "#d0021b", // vibrant soft red
+  "Production 2021": "#bd10e0", // soft magenta/purple
+  "Production 2022": "#f8e71c", // bright yellow
+  "Production 2023": "#7ed321", // soft green
+  "Production 2024": "#f5a3e0", // pastel pink
+  "Production 2025": "#9013fe"  // deep soft violet
+};
 
-<!-- Google Maps API -->
-<script src="https://maps.googleapis.com/maps/api/js?callback=initMap" async defer></script>
 
+
+
+
+
+
+////////////////////legend//////////////////////////
+//  const legend = L.control({ position: "bottomright" });
+
+// legend.onAdd = function (map) {
+//   const div = L.DomUtil.create("div", "info legend");
+//   const years = Object.keys(colors); // your colors object
+//   let labels = "<strong>Edition</strong><br>";
+
+//   years.forEach(y => {
+//     labels += `
+//       <i style="background:${colors[y]}; width: 12px; height: 12px; display:inline-block; margin-right:5px;"></i>
+//       ${y}<br>
+//     `;
+//   });
+
+//   div.innerHTML = labels;
+//   return div;
+// };
+
+// legend.addTo(map);
+
+////////////////////////////////////////
+
+L.easyButton({
+    position: 'topleft',       // top right corner
+    states: [{
+        stateName: 'go-to-page',
+        icon: 'fa-arrow-left',  // font awesome icon
+        title: 'Return to previous page',
+        onClick: function(btn, map){
+            window.location.href = './produits.html'; // redirect
+        }
+    }]
+}).addTo(map);
+
+
+  </script>
 </body>
 </html>
+
+
