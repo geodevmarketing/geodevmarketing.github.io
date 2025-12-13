@@ -5,11 +5,12 @@ document.addEventListener("DOMContentLoaded", () => {
 
     const serviceMap = {
         sigweb: {
-            title: "SIG Web",
-            description: "Description du service SIG web..."
+            title: "SIG web",
+            description: "Description du service SIG web...",
+            video : "media/front.mp4"
         },
         visite: {
-            title: "Visite Virtuelle",
+            title: "Visite virtuelle",
             description: "Description du service Visite virtuelle..."
         },
         formation: {
@@ -17,23 +18,23 @@ document.addEventListener("DOMContentLoaded", () => {
             description: "Description du service Formation..."
         },
         assistance: {
-            title: "Assistance Technique",
+            title: "Assistance technique",
             description: "Description du service Assistance technique..."
         },
         validation: {
-            title: "Validation des Cahiers des Charges",
+            title: "Validation des cahiers des charges",
             description: "Description du service Validation des cahiers des charges..."
         },
         controle: {
-            title: "Contrôle Technique des Produits",
+            title: "Contrôle technique des produits",
             description: "Description du service Contrôle technique des produits..."
         },
         prisevue: {
-            title: "Accompagnement Prise de Vue Aérienne",
+            title: "Accompagnement prise de vue aérienne",
             description: "Description du service Accompagnement prise de vue aérienne..."
         },
         topographie: {
-            title: "Travaux Topographiques et Géodésiques",
+            title: "Travaux topographiques et géodésiques",
             description: "Description du service Travaux topographiques et géodésiques..."
         }
     };
@@ -51,15 +52,28 @@ document.addEventListener("DOMContentLoaded", () => {
     // Mise à jour du service-detail.html
     const serviceTitleElem = document.getElementById("service-title");
     const serviceDescElem = document.getElementById("service-description");
+    const serviceVideoElem = document.getElementById("service-video");
+
 
     if(serviceTitleElem && serviceDescElem){
         const params = new URLSearchParams(window.location.search);
         const serviceKey = params.get("service");
         if(serviceKey && serviceMap[serviceKey]){
+            const service = serviceMap[serviceKey];
             serviceTitleElem.textContent = serviceMap[serviceKey].title;
             serviceDescElem.textContent = serviceMap[serviceKey].description;
+            if (service.video && serviceVideoElem) {
+            serviceVideoElem.innerHTML = `
+                <video autoplay muted loop playsinline preload="auto">
+                    <source src="${service.video}" type="video/mp4">
+                    Votre navigateur ne supporte pas la lecture vidéo.
+                </video>
+            `;
+            }
         }
     }
 });
-
-
+const video = document.getElementById("service-video-player");
+if (video) {
+    video.playbackRate = 2;
+}
