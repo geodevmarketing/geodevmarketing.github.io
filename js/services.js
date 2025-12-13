@@ -32,7 +32,7 @@ document.addEventListener("DOMContentLoaded", () => {
             title: "Accompagnement Prise de Vue Aérienne",
             description: "Description du service Accompagnement prise de vue aérienne..."
         },
-        topo: {
+        topographie: {
             title: "Travaux Topographiques et Géodésiques",
             description: "Description du service Travaux topographiques et géodésiques..."
         }
@@ -61,4 +61,5 @@ document.addEventListener("DOMContentLoaded", () => {
         }
     }
 });
+
 
