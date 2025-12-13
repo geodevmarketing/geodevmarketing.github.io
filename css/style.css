@@ -14,7 +14,7 @@
     display: flex;
     align-items: center;
     justify-content: center;
-    gap: 15px;
+    gap: 5px;
 }
 
 .logo-title-container img#logo-cnct {
@@ -54,6 +54,7 @@
 .btn-back:hover {
     background: #0a1f33e1;
 }
+
 
 
 
