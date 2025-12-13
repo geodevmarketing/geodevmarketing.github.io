@@ -20,6 +20,7 @@
     transition: transform 0.3s, box-shadow 0.3s;
     text-align: center;
     overflow: hidden;
+   text-decoration: none;
 }
 
 .card img {
@@ -51,3 +52,4 @@
         height: 180px;
     }
 }
+
