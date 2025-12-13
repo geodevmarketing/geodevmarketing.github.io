@@ -2,7 +2,8 @@
    HEADER LOGO & TITRE
 =========================== */
 .main-header {
-    background: #005f73;
+    /* background: #005f73; */
+    background : #0A1F33;
     color: #fff;
     padding: 5px;
     text-align: center;
@@ -38,4 +39,5 @@
 .btn-back:hover {
     background: #0a9396;
 }
+
 
