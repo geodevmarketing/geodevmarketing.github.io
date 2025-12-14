@@ -13,7 +13,7 @@ document.addEventListener("DOMContentLoaded", () => {
                 "Partage et diffusion de l’information géographique pour l’aide à la décision"
             ],
             video: "media/LGeoCRUD2.mp4",
-            video2: "media/front.mp4"
+            video2: "media/frontTrim.mp4"
         },
         visite: {
             title: "Visite virtuelle",
