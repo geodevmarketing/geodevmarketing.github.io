@@ -33,6 +33,32 @@
     font-weight: bold;
     margin-right: 8px;
 }
+.service-points li {
+    position: relative;
+    padding-left: 42px;
+}
+
+/* Icône par défaut */
+.service-points li::before {
+    content: "🗺️";
+    position: absolute;
+    left: 14px;
+    top: 14px;
+    font-size: 1.1rem;
+}
+
+/* Icônes spécifiques (optionnel mais très joli) */
+.service-points li:nth-child(1)::before { content: "🗺️"; }   /* cartes */
+.service-points li:nth-child(2)::before { content: "✈️"; }   /* aérien */
+.service-points li:nth-child(3)::before { content: "📐"; }   /* réseaux */
+.service-points li:nth-child(4)::before { content: "🧭"; }   /* frontières */
+.service-points li:nth-child(5)::before { content: "🛰️"; }   /* télédétection */
+.service-points li:nth-child(6)::before { content: "📊"; }   /* études */
+.service-points li:nth-child(7)::before { content: "🎓"; }   /* formation */
+.service-points li:nth-child(8)::before { content: "🤝"; }   /* services */
+.service-points li:nth-child(9)::before { content: "✅"; }   /* contrôle qualité */
+.service-points li:nth-child(10)::before { content: "🏗️"; } /* organisation */
+.service-points li:nth-child(11)::before { content: "🌍"; }  /* international */
 
 </style>
 <body>
@@ -144,6 +170,7 @@ document.addEventListener("DOMContentLoaded", () => {
 
 </body>
 </html>
+
 
 
 
