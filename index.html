@@ -13,8 +13,63 @@
         height: 150px !important;
     }
 }
+    /* Splash screen */
+#splash {
+    position: fixed;
+    inset: 0;
+    background: #0A1F33; /* bleu foncé institutionnel */
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    z-index: 9999;
+    animation: fadeOut 1s ease forwards;
+    animation-delay: 2.5s;
+}
+
+#splash img {
+    width: 140px;
+    animation: zoomIn 1.2s ease;
+}
+
+#splash p {
+    margin-top: 20px;
+    color: white;
+    font-size: 0.9rem;
+    opacity: 0.8;
+}
+
+/* Cache le contenu au départ */
+body > *:not(#splash) {
+    opacity: 0;
+}
+
+/* Animations */
+@keyframes zoomIn {
+    from {
+        transform: scale(0.7);
+        opacity: 0;
+    }
+    to {
+        transform: scale(1);
+        opacity: 1;
+    }
+}
+
+@keyframes fadeOut {
+    to {
+        opacity: 0;
+        visibility: hidden;
+    }
+}
+
 </style>
 <body>
+<!-- Splash screen -->
+<div id="splash">
+    <img src="images/logo-cnct.png" alt="CNCT Logo">
+    <p>Centre National de la Cartographie et de la Télédétection</p>
+</div>
 
     <!-- HEADER avec logo aligné -->
     <header class="main-header" style="position: sticky !important;">
@@ -45,9 +100,17 @@
             <h3>Contact</h3>
         </a>
     </section>
-
+<script>
+window.addEventListener("load", () => {
+    setTimeout(() => {
+        document.querySelectorAll("body > *:not(#splash)")
+            .forEach(el => el.style.opacity = 1);
+    }, 2500);
+});
+</script>
 </body>
 </html>
+
 
 
 
