@@ -12,7 +12,7 @@ document.addEventListener("DOMContentLoaded", () => {
                 "Analyse et interrogation des données spatiales en temps réel",
                 "Partage et diffusion de l’information géographique pour l’aide à la décision"
             ],
-            video: "media/LGeoCRUD.mp4",
+            video: "media/LGeoCRUD2.mp4",
             video2: "media/front.mp4"
         },
         visite: {
