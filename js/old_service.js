@@ -1,14 +1,19 @@
 // services.js : met à jour dynamiquement les liens et descriptions des services
 
 document.addEventListener("DOMContentLoaded", () => {
+
     const serviceCards = document.querySelectorAll(".card");
 
     const serviceMap = {
         sigweb: {
             title: "SIG web",
-            description: "Un Web SIG permet de visualiser, analyser et interagir avec des données spatiales sans logiciel spécialisé.Il facilite le partage de l’information géographique, l’accès en temps réel aux données et l’aide à la prise de décision.",
-            video : "media/LGeoCRUD2.mp4",
-            video2 : "media/front.mp4"
+            description: [
+                "Visualisation interactive des données géographiques via un navigateur web",
+                "Analyse et interrogation des données spatiales en temps réel",
+                "Partage et diffusion de l’information géographique pour l’aide à la décision"
+            ],
+            video: "media/LGeoCRUD.mp4",
+            video2: "media/front.mp4"
         },
         visite: {
             title: "Visite virtuelle",
@@ -40,49 +45,74 @@ document.addEventListener("DOMContentLoaded", () => {
         }
     };
 
-    // Mise à jour des titres des cards sur services.html
+    /* ===============================
+       Mise à jour des cards (services.html)
+    =============================== */
     serviceCards.forEach(card => {
         const href = card.getAttribute("href");
+        if (!href) return;
+
         const url = new URL(href, window.location.href);
         const serviceKey = url.searchParams.get("service");
-        if(serviceKey && serviceMap[serviceKey]){
+
+        if (serviceKey && serviceMap[serviceKey]) {
             card.querySelector("h3").textContent = serviceMap[serviceKey].title;
         }
     });
 
-    // Mise à jour du service-detail.html
+    /* ===============================
+       Mise à jour du service-detail.html
+    =============================== */
     const serviceTitleElem = document.getElementById("service-title");
     const serviceDescElem = document.getElementById("service-description");
     const serviceVideoElem = document.getElementById("service-video");
     const serviceVideoElem2 = document.getElementById("service-video2");
 
-
-    if(serviceTitleElem && serviceDescElem){
+    if (serviceTitleElem && serviceDescElem) {
         const params = new URLSearchParams(window.location.search);
         const serviceKey = params.get("service");
-        if(serviceKey && serviceMap[serviceKey]){
+
+        if (serviceKey && serviceMap[serviceKey]) {
             const service = serviceMap[serviceKey];
-            serviceTitleElem.textContent = serviceMap[serviceKey].title;
-            serviceDescElem.textContent = serviceMap[serviceKey].description;
-            if (service.video && serviceVideoElem) {
-            serviceVideoElem.innerHTML = `
-                <video autoplay muted loop playsinline preload="metadata">
-                    <source src="${service.video}" type="video/mp4">
-                    Votre navigateur ne supporte pas la lecture vidéo.
-                </video>
-            `;
+
+            // Titre
+            serviceTitleElem.textContent = service.title;
+
+            // Description (liste ou texte)
+            if (Array.isArray(service.description)) {
+                serviceDescElem.innerHTML = `
+                    <ul class="service-points">
+                        ${service.description.map(point => `<li>${point}</li>`).join("")}
+                    </ul>
+                `;
+            } else {
+                serviceDescElem.textContent = service.description;
             }
+
+            // Vidéo 1
+            if (service.video && serviceVideoElem) {
+                serviceVideoElem.innerHTML = `
+                    <video autoplay muted loop playsinline preload="auto">
+                        <source src="${service.video}" type="video/mp4">
+                        Votre navigateur ne supporte pas la lecture vidéo.
+                    </video>
+                `;
+            }
+
+            // Vidéo 2
             if (service.video2 && serviceVideoElem2) {
-            serviceVideoElem2.innerHTML = `
-                <video autoplay muted loop playsinline preload="metadata">
-                    <source src="${service.video2}" type="video/mp4">
-                    Votre navigateur ne supporte pas la lecture vidéo.
-                </video>
-            `;
+                serviceVideoElem2.innerHTML = `
+                    <video autoplay muted loop playsinline preload="auto">
+                        <source src="${service.video2}" type="video/mp4">
+                        Votre navigateur ne supporte pas la lecture vidéo.
+                    </video>
+                `;
             }
         }
     }
+
 });
+
 const video = document.getElementById("service-video-player");
 if (video) {
     video.playbackRate = 2;
