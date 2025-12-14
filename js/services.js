@@ -21,7 +21,13 @@ document.addEventListener("DOMContentLoaded", () => {
         },
         formation: {
             title: "Formation",
-            description: "Description du service Formation..."
+           description: [
+        "Topographie et bases géodésiques",
+        "Traitement et analyse des images satellitaires (télédétection)",
+        "Photogrammétrie et exploitation des photos aériennes",
+        "Maîtrise des outils SIG et des applications Web SIG",
+        "Cartographie numérique et production cartographique",   
+    ]
         },
         assistance: {
             title: "Assistance technique",
