@@ -66,7 +66,7 @@ document.addEventListener("DOMContentLoaded", () => {
             serviceDescElem.textContent = serviceMap[serviceKey].description;
             if (service.video && serviceVideoElem) {
             serviceVideoElem.innerHTML = `
-                <video autoplay muted loop playsinline preload="auto">
+                <video autoplay muted loop playsinline preload="metadata">
                     <source src="${service.video}" type="video/mp4">
                     Votre navigateur ne supporte pas la lecture vidéo.
                 </video>
@@ -74,7 +74,7 @@ document.addEventListener("DOMContentLoaded", () => {
             }
             if (service.video2 && serviceVideoElem2) {
             serviceVideoElem2.innerHTML = `
-                <video autoplay muted loop playsinline preload="auto">
+                <video autoplay muted loop playsinline preload="metadata">
                     <source src="${service.video2}" type="video/mp4">
                     Votre navigateur ne supporte pas la lecture vidéo.
                 </video>
@@ -87,6 +87,7 @@ const video = document.getElementById("service-video-player");
 if (video) {
     video.playbackRate = 2;
 }
+
 
 
 
