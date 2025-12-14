@@ -1,0 +1,167 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Détail Service - CNCT</title>
+    <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" href="css/cards.css">
+</head>
+<style>
+    #service-video {
+    margin-top: 15px;
+}
+
+#service-video video {
+    width: 100%;
+    max-width: 100%;
+    border-radius: 12px;
+    box-shadow: 0 4px 12px rgba(0,0,0,0.25);
+}
+    #service-video2 {
+    margin-top: 15px;
+}
+
+#service-video2 video {
+    width: 100%;
+    max-width: 100%;
+    border-radius: 12px;
+    box-shadow: 0 4px 12px rgba(0,0,0,0.25);
+}
+
+.service-points {
+    list-style: none;
+    padding: 0;
+    margin-top: 15px;
+}
+
+.service-points li {
+    background: #f2f4f7;
+    padding: 14px;
+    margin-bottom: 12px;
+    border-radius: 12px;
+
+    font-size: 0.95rem;
+    line-height: 1.4;
+    box-shadow: 0 2px 8px rgba(0,0,0,0.12);
+}
+
+.service-points li::before {
+    content: "•";
+    color: #0A1F33;
+    font-weight: bold;
+    margin-right: 8px;
+}
+
+</style>
+<body>
+
+<!-- HEADER avec logo aligné -->
+<header class="main-header">
+    <div class="logo-title-container">
+        <button class="btn-back2" onclick="goBack()">↩︎</button>
+        <h1 class="page-title" id="service-title">Mission</h1>
+    </div>
+</header>
+
+<!-- Bouton retour -->
+<!-- <button class="btn-back" onclick="goBack()">← Retour</button> -->
+
+<main class="container">
+    <article class="service-description">
+        <p id="service-description">Description apparaîtra ici.</p>
+    </article>
+
+</main>
+
+<!-- Script global -->
+<script >
+
+function goBack() {
+    window.location.href = "index.html";
+}
+
+
+
+// services.js : met à jour dynamiquement les liens et descriptions des services
+
+document.addEventListener("DOMContentLoaded", () => {
+
+    const serviceCards = document.querySelectorAll(".card");
+
+    const serviceMap = {
+        missions: {
+            title: "Missions",
+    description: [
+        "Établissement, gestion, publication et commercialisation de tous types de cartes",
+        "Réalisation et supervision des activités de prises de vues aériennes",
+        "Implantation et conservation des réseaux gravimétriques et de nivellement",
+        "Réalisation de tous les travaux relatifs aux frontières",
+        "Traitement, diffusion et archivage des données de la télédétection",
+        "Réalisation des études basées sur les techniques spatiales",
+        "Offre de formations payantes selon la demande",
+        "Offre de prestations de services payantes",
+        "Réalisation des opérations de contrôle qualité des travaux et produits des secteurs public et privé",
+        "Organisation du secteur de la géomatique",
+        "Représentation de la Tunisie auprès des organisations régionales et internationales spécialisées"
+    ]
+        },
+
+    };
+
+    /* ===============================
+       Mise à jour des cards (services.html)
+    =============================== */
+    // serviceCards.forEach(card => {
+    //     const href = card.getAttribute("href");
+    //     if (!href) return;
+
+    //     const url = new URL(href, window.location.href);
+    //     const serviceKey = url.searchParams.get("service");
+
+    //     if (serviceKey && serviceMap[serviceKey]) {
+    //         card.querySelector("h3").textContent = serviceMap[serviceKey].title;
+    //     }
+    // });
+
+    /* ===============================
+       Mise à jour du service-detail.html
+    =============================== */
+    const serviceTitleElem = document.getElementById("service-title");
+    const serviceDescElem = document.getElementById("service-description");
+
+
+    if (serviceTitleElem && serviceDescElem) {
+        // const params = new URLSearchParams(window.location.search);
+        const serviceKey = 'missions'
+
+        if (serviceKey && serviceMap[serviceKey]) {
+            const service = serviceMap[serviceKey];
+
+            // Titre
+            serviceTitleElem.textContent = service.title;
+
+            // Description (liste ou texte)
+            if (Array.isArray(service.description)) {
+                serviceDescElem.innerHTML = `
+                    <ul class="service-points">
+                        ${service.description.map(point => `<li>${point}</li>`).join("")}
+                    </ul>
+                `;
+            } else {
+                serviceDescElem.textContent = service.description;
+            }
+
+
+        }
+    }
+
+});
+
+</script>
+
+
+</body>
+</html>
+
+
