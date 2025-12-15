@@ -114,7 +114,12 @@
   line-height: 1.5;
   color: #333;
 }
-
+.sidebar-video {
+  width: 100%;
+  border-radius: 8px;
+  margin: 10px 0;
+  box-shadow: 0 2px 6px rgba(0,0,0,0.25);
+}
   </style>
 </head>
 <body>
@@ -130,11 +135,10 @@
     <div class="sidebar-content">
       <h2>Modèle Numérique de Terrain</h2>
     
-      <!-- <img 
-        src="images/marine.jpg" 
-        alt="Carte"
-        class="sidebar-image"
-      /> -->
+      <video class="sidebar-video" autoplay muted loop playsinline preload="auto">
+        <source src="media/mnt.mp4" type="video/mp4">
+        Votre navigateur ne supporte pas la lecture de vidéo.
+      </video>
     
       <p>
 desc1
@@ -258,6 +262,7 @@ L.easyButton({
   </script>
 </body>
 </html>
+
 
 
 
