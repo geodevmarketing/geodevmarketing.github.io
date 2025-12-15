@@ -21,7 +21,7 @@ document.addEventListener("DOMContentLoaded", () => {
         "Visites virtuelles immersives (scans laser 3D)",
         "Nuages de points haute précision",
         "Visualisation interactive",
-        "Analyse et l’aide à la décision"
+        "Analyse et aide à la décision"
         ],
             video: "media/visite.mp4",
         },
