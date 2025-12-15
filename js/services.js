@@ -8,9 +8,9 @@ document.addEventListener("DOMContentLoaded", () => {
         sigweb: {
             title: "SIG web",
             description: [
-                "Visualisation interactive des données géographiques via un navigateur web",
-                "Analyse et interrogation des données spatiales en temps réel",
-                "Partage et diffusion de l’information géographique pour l’aide à la décision"
+                "Visualisation interactive",
+                "Analyse et interrogation en temps réel",
+                "Partage et diffusion"
             ],
             video: "media/frontTrim.mp4",
             // video2: "media/LGeoCRUD2_1.mp4"
@@ -18,10 +18,10 @@ document.addEventListener("DOMContentLoaded", () => {
         visite: {
             title: "Visite virtuelle",
             description: [
-        "Réalisation de visites virtuelles immersives à partir de scans laser 3D",
-        "Génération de nuages de points haute précision pour la modélisation des espaces",
-        "Visualisation interactive des sites et infrastructures en environnement numérique",
-        "Exploitation des données 3D pour l’analyse, la documentation et l’aide à la décision"
+        "Visites virtuelles immersives (scans laser 3D)",
+        "Nuages de points haute précision",
+        "Visualisation interactive",
+        "Analyse et l’aide à la décision"
         ],
             video: "media/visite.mp4",
         },
@@ -38,46 +38,43 @@ document.addEventListener("DOMContentLoaded", () => {
         assistance: {
             title: "Assistance technique",
              description: [
-        "Accompagnement technique des institutions et organismes dans les domaines de la cartographie et de la géomatique",
-        "Appui à la mise en œuvre et à l’exploitation des systèmes d’information géographique",
-        "Assistance dans le traitement, l’analyse et la valorisation des données géospatiales",
-        "Support technique adapté aux besoins spécifiques des projets et des utilisateurs"
+        "Accompagnement technique",
+        "Appui à l’exploitation des SIG",
+        "Assistance dans le géo-traitement",
+        "Support technique adapté aux besoins"
     ]
         },
         validation: {
             title: "Validation des cahiers des charges",
             description: [
-        "Analyse et validation des cahiers des charges relatifs aux projets cartographiques et géomatiques",
-        "Vérification de la conformité technique aux normes et standards en vigueur",
-        "Évaluation des spécifications fonctionnelles et techniques des projets",
-        "Appui aux organismes dans la définition et la sécurisation des exigences techniques"
+        "Analyse et validation",
+        "Conformité technique aux normes",
+        "Spécifications fonctionnelles et techniques",
+        "Sécurisation des exigences techniques"
     ]
         },
         controle: {
             title: "Contrôle technique des produits",
             description: [
-        "Réalisation des opérations de contrôle technique et de qualité des produits cartographiques et géomatiques",
-        "Vérification de la conformité des données et des livrables aux normes et spécifications techniques",
-        "Évaluation de la précision, de la fiabilité et de la cohérence des produits géospatiaux",
-        "Contrôle et validation des produits issus des secteurs public et privé"
+        "Contrôle technique",
+        "Conformité des livrables",
+        "Précision et Fiabilité"
     ]
         },
         prisevue: {
             title: "Accompagnement prise de vue aérienne",
             description: [
-        "Accompagnement technique lors des opérations de prises de vues aériennes",
-        "Appui à la planification et à l’exécution des missions de photographie aérienne",
-        "Conseil sur les équipements, capteurs et paramètres de prise de vue",
-        "Suivi et validation des données acquises conformément aux normes techniques"
+        "Accompagnement technique en PVA",
+        "Planification des missions de photographie aérienne",
+        "Suivi et validation des données acquises"
     ]
         },
         topographie: {
             title: "Travaux topographiques et géodésiques",
             description: [
-        "Réalisation des travaux topographiques pour la levée et la représentation du terrain",
-        "Exécution des opérations géodésiques et de positionnement de précision",
-        "Implantation, entretien et exploitation des réseaux géodésiques",
-        "Production de données topographiques fiables pour les projets d’aménagement et d’infrastructure"
+        "Levée topographique",
+        "Opérations géodésiques et Positionnement de précision",
+        "Implantation et entretien des réseaux géodésiques"
     ],
             video: "media/topo.mp4",
         }
