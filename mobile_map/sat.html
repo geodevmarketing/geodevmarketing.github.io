@@ -1,0 +1,269 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Sat</title>
+  <meta name="viewport" charset="utf-8" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+
+  <link rel="stylesheet" href="https://unpkg.com/leaflet/dist/leaflet.css" />
+  <link href="https://maxcdn.bootstrapcdn.com/font-awesome/4.1.0/css/font-awesome.min.css" rel="stylesheet">
+  <style>
+        #map { height: 90vh;
+		   border-radius : 10px;
+		 }
+    .legend {
+  background: white;
+  padding: 10px;
+  border-radius: 8px;
+  line-height: 18px;
+  box-shadow: 0 0 6px rgba(0,0,0,0.25);
+  font-size: 13px;
+  max-width: 200px;
+ /* min-width: 300; */
+}
+
+/* Desktop */
+@media (min-width: 768px) {
+  .legend {
+    font-size: 14px;
+  }
+}
+
+/* Mobile layout */
+@media (max-width: 767px) {
+  .legend {
+    font-size: 12px;
+    padding: 8px;
+    max-width: 200px;
+    line-height: 16px;
+  }
+
+  .legend i {
+    width: 10px !important;
+    height: 10px !important;
+  }
+}
+.closebtn {
+	position: absolute;
+	top: 0;
+	right: 10px;
+	font-size: 30px;
+	margin-left: 50px;
+	text-decoration: none;
+	color: black;
+}
+
+/* === GLOBAL LEAFLET BUTTON STYLE === */
+.leaflet-bar {
+  border: none !important;
+}
+.leaflet-bar a,
+.leaflet-control .easy-button-button {
+    width: 44px !important;
+    height: 44px !important;
+    line-height: 44px !important;
+
+    border-radius: 50% !important;   /* cercle parfait */
+    background-color: #0A1F33 !important; /* bleu foncé */
+    color: #ffffff !important;
+
+    border: none !important;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.35);
+
+    font-size: 18px;
+    text-align: center;
+}
+
+/* Icônes Font Awesome bien centrées */
+.leaflet-bar a i,
+.easy-button-button i {
+    line-height: 44px;
+    color: #ffffff;
+}
+
+/* Hover effect */
+.leaflet-bar a:hover,
+.easy-button-button:hover {
+    background-color: #123B5A !important;
+    transform: scale(1.05);
+}
+
+/* Active / touch feedback */
+.leaflet-bar a:active,
+.easy-button-button:active {
+    transform: scale(0.95);
+}
+.sidebar-content {
+  padding: 15px;
+  font-family: Arial, sans-serif;
+}
+
+.sidebar-content h2 {
+  margin-top: 0;
+  font-size: 18px;
+}
+
+.sidebar-image {
+  width: 100%;
+  border-radius: 8px;
+  margin: 10px 0;
+  box-shadow: 0 2px 6px rgba(0,0,0,0.25);
+}
+
+.sidebar-content p {
+  font-size: 14px;
+  line-height: 1.5;
+  color: #333;
+}
+
+  </style>
+</head>
+<body>
+
+
+ 
+<div id="map"></div>
+<div id="side-bar" style="background-color: #f1f1f1">
+    <a href="javascript:void(0)" class="closebtn" onclick="sidebarreturn()"
+        >&times;</a
+    >
+    <br><br><br>
+    <div class="sidebar-content">
+      <h2>Images Satellitaires</h2>
+    
+      <!-- <img 
+        src="images/marine.jpg" 
+        alt="Carte"
+        class="sidebar-image"
+      /> -->
+    
+      <p>
+desc1
+      </p>
+    
+      <p>
+desc2      </p>
+    </div>
+    
+
+</div>
+
+  <script src="https://unpkg.com/leaflet/dist/leaflet.js"></script>
+  <link rel="stylesheet" href="plugin/L.Control.Sidebar.css" />
+  <script src="plugin/L.Control.Sidebar.js"></script>
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/leaflet-easybutton@2/src/easy-button.css" />
+<script src="https://cdn.jsdelivr.net/npm/leaflet-easybutton@2/src/easy-button.js"></script>
+
+  
+  
+
+  <script>
+    // 1. Create map
+    const map = L.map('map').setView([34.0, 9.0], 6); // center Tunisia
+
+
+    L.tileLayer(
+  "https://server.arcgisonline.com/ArcGIS/rest/services/World_Topo_Map/MapServer/tile/{z}/{y}/{x}",
+  {
+    attribution: 'Tiles © Esri',
+    maxZoom: 19
+  }
+).addTo(map);
+
+function sidebarreturn() {
+				ctlSidebar.toggle();
+			}
+			ctlSidebar = L.control.sidebar("side-bar").addTo(map);
+			ctlEasybutton = L.easyButton("fa fa-bars", function () {
+				ctlSidebar.toggle();
+			})
+				.setPosition("topleft")
+				.addTo(map);
+
+
+//         const colors = {
+//   "Production 2017": "#50e3c2", // strong soft blue
+//   // "Production 2018": "#50e3c2", // soft turquoise
+//   "Production 2019": "#f5a623", // warm golden yellow
+//   "Production 2020": "#d0021b", // vibrant soft red
+//   "Production 2021": "#bd10e0", // soft magenta/purple
+//   "Production 2022": "#f8e71c", // bright yellow
+//   "Production 2023": "#7ed321", // soft green
+//   "Production 2024": "#f5a3e0", // pastel pink
+//   "Production 2025": "#9013fe"  // deep soft violet
+// };
+
+
+
+    // 3. Load your GeoJSON
+//     fetch('data/index_25k_T.geojson')
+//       .then(res => res.json())
+//       .then(data => {
+//         const layer = L.geoJSON(data, {
+//             style: feature => ({
+//   color: colors[feature.properties.Edition] || 'black',
+//   weight: 2,
+//   fillOpacity: 0
+// }),
+//           onEachFeature: (feature, layer) => {
+//             layer.bindPopup(
+//               `<b>Nom:</b> ${feature.properties.Nom_25 || 'N/A'}
+//               <br>
+//               <b>Edition:</b> ${feature.properties.Edition || 'N/A'}`
+//             );
+//           }
+//         }).addTo(map);
+
+//         // 4. Fit map to polygon extent
+//         map.fitBounds(layer.getBounds());
+//       });
+
+
+
+////////////////////legend//////////////////////////
+//  const legend = L.control({ position: "bottomright" });
+
+// legend.onAdd = function (map) {
+//   const div = L.DomUtil.create("div", "info legend");
+//   const years = Object.keys(colors); // your colors object
+//   let labels = "<strong>Edition</strong><br>";
+
+//   years.forEach(y => {
+//     labels += `
+//       <i style="background:${colors[y]}; width: 12px; height: 12px; display:inline-block; margin-right:5px;"></i>
+//       ${y}<br>
+//     `;
+//   });
+
+//   div.innerHTML = labels;
+//   return div;
+// };
+
+// legend.addTo(map);
+
+////////////////////////////////////////
+
+L.easyButton({
+    position: 'topleft',       // top right corner
+    states: [{
+        stateName: 'go-to-page',
+        icon: 'fa-arrow-left',  // font awesome icon
+        title: 'Return to previous page',
+        onClick: function(btn, map){
+            window.location.href = '../produits.html'; // redirect
+        }
+    }]
+}).addTo(map);
+
+
+  </script>
+</body>
+</html>
+
+
+
+
+
+
+
+
+
