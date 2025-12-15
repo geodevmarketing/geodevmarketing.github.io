@@ -92,7 +92,28 @@
 .easy-button-button:active {
     transform: scale(0.95);
 }
+.sidebar-content {
+  padding: 15px;
+  font-family: Arial, sans-serif;
+}
 
+.sidebar-content h2 {
+  margin-top: 0;
+  font-size: 18px;
+}
+
+.sidebar-image {
+  width: 100%;
+  border-radius: 8px;
+  margin: 10px 0;
+  box-shadow: 0 2px 6px rgba(0,0,0,0.25);
+}
+
+.sidebar-content p {
+  font-size: 14px;
+  line-height: 1.5;
+  color: #333;
+}
   </style>
 </head>
 <body>
@@ -105,9 +126,31 @@
         >&times;</a
     >
     <br><br><br>
-<div>
-    <h2>Description</h2>
-</div>
+    <div class="sidebar-content">
+      <h2>Carte Topographique 1:50 000</h2>
+    
+      <img 
+        src="images/carte_50k.jpg" 
+        alt="Carte 1:50 000"
+        class="sidebar-image"
+      />
+    
+      <p>
+        Parmi les cartes topographiques à l’ échelle 1:50000,
+        il y a les cartes type 22, qui sont produites conformément à la première carte topographique réalisée à
+        l'IGN en 1922 d'où l'appellation "”Cartes Type 22".
+   
+
+
+      </p>
+    
+      <p>
+        Ce type de cartes utilise la projection conique
+        conforme de Lambert Nord Tunsie. Elles sont
+        réalisées par des levés directs et révisées à l’aide des
+        photographies anciennes de l’année 1958.
+      </p>
+    </div>
 
 </div>
 
