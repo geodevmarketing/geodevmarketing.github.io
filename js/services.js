@@ -78,7 +78,8 @@ document.addEventListener("DOMContentLoaded", () => {
         "Exécution des opérations géodésiques et de positionnement de précision",
         "Implantation, entretien et exploitation des réseaux géodésiques",
         "Production de données topographiques fiables pour les projets d’aménagement et d’infrastructure"
-    ]
+    ],
+            video: "media/topo.mp4",
         }
     };
 
