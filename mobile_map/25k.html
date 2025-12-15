@@ -92,6 +92,28 @@
 .easy-button-button:active {
     transform: scale(0.95);
 }
+.sidebar-content {
+  padding: 15px;
+  font-family: Arial, sans-serif;
+}
+
+.sidebar-content h2 {
+  margin-top: 0;
+  font-size: 18px;
+}
+
+.sidebar-image {
+  width: 100%;
+  border-radius: 8px;
+  margin: 10px 0;
+  box-shadow: 0 2px 6px rgba(0,0,0,0.25);
+}
+
+.sidebar-content p {
+  font-size: 14px;
+  line-height: 1.5;
+  color: #333;
+}
 
   </style>
 </head>
@@ -105,9 +127,33 @@
         >&times;</a
     >
     <br><br><br>
-<div>
-    <h2>Description</h2>
-</div>
+    <div class="sidebar-content">
+      <h2>Carte Topographique 1:25 000</h2>
+    
+      <img 
+        src="images/carte_25k.jpg" 
+        alt="Carte 1:25 000"
+        class="sidebar-image"
+      />
+    
+      <p>
+        Les cartes topographiques à moyenne échelle (1
+        :25000) étaient conçues et publiées pour la
+        première fois en Tunisie par l’Office de la topographie et de la Cartographie (OTC) en 1982 à
+        partir des levés photogrammétriques. Le système
+        de projection utilisé était la projection conique
+        conforme de Lambert Nord de la Tunisie.
+
+      </p>
+    
+      <p>
+        Les cartes les plus récentes ont été réalisées à
+        partir de l’année 2017 suite aux missions de prise
+        de vue aérienne (PVA) dans le système géodésique UTM WGS84. Certaines cartes contiennent un pseudo quadrillage correspondant à la
+        Nouvelle Triangulation de la Tunisie (NTT). 
+      </p>
+    </div>
+    
 
 </div>
 
