@@ -22,7 +22,8 @@ document.addEventListener("DOMContentLoaded", () => {
         "Génération de nuages de points haute précision pour la modélisation des espaces",
         "Visualisation interactive des sites et infrastructures en environnement numérique",
         "Exploitation des données 3D pour l’analyse, la documentation et l’aide à la décision"
-        ]
+        ],
+            video: "media/visite.mp4",
         },
         formation: {
             title: "Formation",
@@ -151,7 +152,7 @@ document.addEventListener("DOMContentLoaded", () => {
 
 const video = document.getElementById("service-video-player");
 if (video) {
-    video.playbackRate = 2;
+    video.playbackRate = 1.5;
 }
 
 
