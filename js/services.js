@@ -12,8 +12,8 @@ document.addEventListener("DOMContentLoaded", () => {
                 "Analyse et interrogation des données spatiales en temps réel",
                 "Partage et diffusion de l’information géographique pour l’aide à la décision"
             ],
-            video: "media/LGeoCRUD2_1.mp4",
-            video2: "media/frontTrim.mp4"
+            video: "media/frontTrim.mp4",
+            // video2: "media/LGeoCRUD2_1.mp4"
         },
         visite: {
             title: "Visite virtuelle",
