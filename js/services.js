@@ -12,7 +12,7 @@ document.addEventListener("DOMContentLoaded", () => {
                 "Analyse et interrogation en temps réel",
                 "Partage et diffusion"
             ],
-            video: "media/urban_analysis-Trim.mp4",
+            video: "media/urbanGIS.mp4",
             // video2: "media/LGeoCRUD2_1.mp4"
         },
         visite: {
